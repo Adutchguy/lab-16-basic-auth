@@ -1,4 +1,5 @@
-# Lab 16
+[![Build Status](https://travis-ci.org/Adutchguy/lab-16-basic-auth.svg?branch=master)](https://travis-ci.org/Adutchguy/lab-16-basic-auth)
+# Lab 18
 
 ## How To Install
 

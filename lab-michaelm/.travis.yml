@@ -15,5 +15,5 @@ env:
 sudo: required
 before_script: npm i
 script:
-  - npm test
-  - npm run lint
+  - cd /lab-michaelm; npm test
+  - cd /lab-michaelm; npm run lint

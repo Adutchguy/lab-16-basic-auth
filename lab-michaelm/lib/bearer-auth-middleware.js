@@ -19,16 +19,16 @@ module.exports = (req, res, next) => {
   // decrypt the token
   universalify.fromCallback(jwt.verify)(token, process.env.APP_SECRET)
   // find the user by the tokenSeed
-  .then(decoded => User.findOne({tokenSeed: decoded.tokenSeed}))
-  .then(user => {
-    if(!user)
-      throw new Error('unauthorized no user found');
-    // add the user to the req object
-    req.user = user;
-    // next
-    next();
-  })
-  .catch(next);
+    .then(decoded => User.findOne({tokenSeed: decoded.tokenSeed}))
+    .then(user => {
+      if(!user)
+        throw new Error('unauthorized no user found');
+      // add the user to the req object
+      req.user = user;
+      // next
+      next();
+    })
+    .catch(next);
 
 
 };

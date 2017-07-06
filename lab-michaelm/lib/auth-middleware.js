@@ -24,17 +24,16 @@ module.exports = (req, res, next) => {
     return next(new Error('unauthorized, username or password was missing'));
 
   User.findOne({username})
-  .then(user => {
-    if(!user)
-      return next(new Error('unauthorized, user does not exist'));
-    return user.passwordHashCompare(password);
-  })
-  .then(user => {
-    req.user = user;
-    next();
-  })
-  .catch(() => {
-    next(new Error('unauthorized, find one failed in basic auth middleware'));
-  });
-
+    .then(user => {
+      if(!user)
+        return next(new Error('unauthorized, user does not exist'));
+      return user.passwordHashCompare(password);
+    })
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(() => {
+      next(new Error('unauthorized, find one failed in basic auth middleware'));
+    });
 };
